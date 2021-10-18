@@ -8,6 +8,7 @@ export class FestivalService {
   constructor() {}
 
   getFestivals() {
+  //Using the output of the API directly as Cross-Origin Requests are Blocked
     return [{
                "name": "LOL-palooza",
                "bands": [{
