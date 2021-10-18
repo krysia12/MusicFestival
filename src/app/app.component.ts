@@ -6,12 +6,16 @@ import { FestivalService } from './festival.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Music Festival';
-  festivals;
-  constructor(service: FestivalService) {
-    this.festivals = service.getFestivals();
-  }
+  festivals:any[] = [];
+  constructor(private festivalservice: FestivalService) { }
+
+  ngOnInit() {
+        this.festivalservice.getFestivals().subscribe((data: any)=>{
+        this.festivals = data;
+      })
+    }
 
   mapBandDetailsToLabelnFestival(band:any,fest:any){
     return band.map((val:any) => {

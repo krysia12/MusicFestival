@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FestivalService {
 
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
   getFestivals() {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type','application/json');
+      return this.httpClient.get('/api/v1/festivals',{
+        headers: headers
+      });
   //Using the output of the API directly as Cross-Origin Requests are Blocked
-    return [{
+    /* return [{
                "name": "LOL-palooza",
                "bands": [{
                  "name": "Winter Primates",
@@ -96,6 +102,6 @@ export class FestivalService {
                      "recordLabel": "Pacific Records"
                    }]
                  }
-               ];
+               ]; */
     }
  }

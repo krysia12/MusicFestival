@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import { FestivalService } from './festival.service';
 import { NgpSortModule } from "ngp-sort-pipe";
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -14,7 +15,8 @@ import { NgpSortModule } from "ngp-sort-pipe";
   ],
   imports: [
     BrowserModule,
-    NgpSortModule
+    NgpSortModule,
+    HttpClientModule
   ],
   providers: [
     FestivalService
