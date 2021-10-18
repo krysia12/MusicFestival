@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FestivalService } from './festival.service';
 
 @Component({
@@ -6,9 +6,10 @@ import { FestivalService } from './festival.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent implements OnInit{
   title = 'Music Festival';
-  festivals:any[] = [];
+  festivals: any[] = [];
+  recordLabelDets: any[] = [];
   constructor(private festivalservice: FestivalService) { }
 
   ngOnInit() {
